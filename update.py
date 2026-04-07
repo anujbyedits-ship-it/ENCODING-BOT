@@ -14,7 +14,7 @@ UPSTREAM_BRANCH = 'audioswap'
 UPSTREAM_BRANCH = 'encode'
 
 if UPSTREAM_REPO is not None:
-    if ospath.exists('.git'):
+    if os.path.exists('.git'):
         srun(["rm", "-rf", ".git"])
 
     update = srun([f"git init -q \
