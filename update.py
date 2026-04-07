@@ -1,17 +1,14 @@
 
 from subprocess import run as srun
 import logging
-from os import path as ospath
+import os
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
 
-UPSTREAM_REPO = 'https://github.com/abhinai2244/Encoding-Bot.git'
-
-UPSTREAM_BRANCH = 'audioswap'
-=======
-UPSTREAM_BRANCH = 'encode'
+UPSTREAM_REPO = os.getenv("UPSTREAM_REPO")
+UPSTREAM_BRANCH = os.getenv("UPSTREAM_BRANCH", "master")
 
 if UPSTREAM_REPO is not None:
     if os.path.exists('.git'):
